@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demoservicenodeip
+spec:
+  ports:
+   - port: 8082
+     targetPort: 80
+  selector:
+    name: firstweb
+  type: NodePort

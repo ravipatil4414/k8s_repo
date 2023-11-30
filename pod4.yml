@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod4
+  annotations:
+    description: this our second pod in side this we have two containers
+spec:
+  containers:
+    - name: c50
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo hello this is container 1; sleep 40; done"]
+    - name: c51
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo this is container 2; sleeep 40; done"]

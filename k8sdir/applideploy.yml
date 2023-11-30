@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: firstdeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+       task: first
+  template:
+    metadata:
+      name: firsttemp
+      labels:
+        task: first
+    spec:
+      containers:
+        - name: firast-container
+          image: ravipatil44/testimg3:latest
+          ports:
+            - containerPort: 80
+  

@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: labelpod
+  annotations:
+    description: this for learing label pod
+  labels:
+    env: testing
+    name: ravi
+    company: TCS
+spec:
+  containers:
+    - name: c53
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo hello this for label; sleep 50; done"]
+

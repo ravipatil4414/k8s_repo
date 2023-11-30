@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myemptyvol
+spec:
+  containers:
+    - name: c68
+      image: centos
+      command: ["/bin/bash","-c", "sleep 15000"]
+      volumeMounts:
+        - name: mymount
+          mountPath: "/temp/myfiles"
+    - name: c67
+      image: centos
+      command: ["/bin/bash", "-c", "sleep 10000"]  # Corrected from "commmand" to "command"
+      volumeMounts:
+         - name: mymount
+           mountPath: "/tmp/data"
+  volumes:
+    - name: mymount
+      emptyDir: {}
+
+

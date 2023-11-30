@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mywebdeploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: firstweb
+  template:
+    metadata:
+      name: mywebtemp
+      labels:
+        name: firstweb
+    spec:
+      containers:
+        - name: c65
+          image: httpd
+          ports:
+            - containerPort: 80

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: taskservicenodeip
+spec:
+  ports:
+   - port: 8085
+     targetPort: 80
+  selector:
+    task: first
+  type: NodePort

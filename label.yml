@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod3
+  labels:
+    env: prod
+    name: sachin
+    company: Bosch
+spec:
+  containers:
+    - name: c10
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo this is for label; sleep 50 ; done"]
+

@@ -1,0 +1,21 @@
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: mydaemonset
+spec:
+  selector:
+     matchLabels:
+         team: daemonteam
+  template:
+     metadata:
+       name: daemontemplate
+       labels:
+        team: daemonteam
+     spec:
+       containers:
+           - name: c54
+             image: httpd
+             ports:
+               - containerPort: 80
+
+

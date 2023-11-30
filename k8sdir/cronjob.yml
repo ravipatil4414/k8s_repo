@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "* * * * *"  #every min job would be executed
+  jobTemplate:
+    spec:
+      backoffLimit: 4   #numer of retries that should be attempted before marking job as failed 
+      template:
+        spec:
+          restartPolicy: Never #if the pod fails it will not be restarted 
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent #if the image is already  present in the node  it will not be pulled again
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster

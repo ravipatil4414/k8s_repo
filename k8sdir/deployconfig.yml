@@ -1,0 +1,46 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mydeployconfig
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: config
+  template:
+    metadata:
+      name: mytemp
+      labels:
+        name: config
+    spec:
+      containers:
+        - name: c55
+          image: httpd
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "500m"
+            requests:
+              cpu: "200m"
+          volumeMounts:
+            - name: myvl
+              mountPath: /tmp/data
+      volumes:
+        - name: myvl
+          configMap:
+            name: mymap
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: configservice
+spec:
+  ports:
+    - port: 8086
+      targetPort: 80
+  selector:
+    name: config
+  type: NodePort
+

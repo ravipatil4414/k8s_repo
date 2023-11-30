@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicapod
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      myname: ravi
+  template:
+    metadata:
+      name: templatereplica
+      labels:
+        myname: ravi
+    spec:
+      containers:
+        - name: creplica
+          image: nginx
+

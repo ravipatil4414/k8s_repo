@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+   name: firstpod1
+   labels:
+     ravi: testing
+     name: sachin
+spec:
+  containers:
+    - name: c023
+      image: ubuntu
+
